@@ -5,6 +5,7 @@ const mode = document.querySelector(".Filling")
 const INITIAL_COLOR ="#2c2c2c"
 const CANVAS_SIZE = 700
 const range = document.querySelector("input")
+const saveBtn = document.querySelector(".Saving")
 
 canvas.width = CANVAS_SIZE;
 canvas.height = CANVAS_SIZE; 
@@ -56,7 +57,7 @@ function handleMode(){
     mode.innerText = "Fill"
 } else{
     filing = true
-    mode.innerText = "paint"
+    mode.innerText = "Paint"
     ctx.fillStyle = ctx.strokeStyle
 }
 }
@@ -65,6 +66,19 @@ function handleCanvasClick(){
     if(filing){
         ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE)
     }
+}
+
+function prevaneting(event){
+    event.preventDefault()
+    
+}
+
+function handleSaveClick(){
+    const image = canvas.toDataURL()
+    const link = document.createElement("a")
+    link.href = image
+    link.download = "PaintJS[🎨]";
+    link.click();
 }
 
 
@@ -78,6 +92,7 @@ if(canvas){
     canvas.addEventListener("mousedown", paint)
     canvas.addEventListener("mouseup", onLeave)
     canvas.addEventListener("click", handleCanvasClick);
+    canvas.addEventListener("contextmenu", prevaneting)
 }
 
 Array.from(colors).forEach(color =>
@@ -86,4 +101,6 @@ Array.from(colors).forEach(color =>
 mode.addEventListener("click", handleMode)
     
 
-
+if (saveBtn) {
+    saveBtn.addEventListener("click", handleSaveClick);
+  }
