@@ -1,32 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-       <meta charset="UTF-8">
-       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <link rel="stylesheet" href="home2.css">
-       <title>The ToDo-list</title>
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="home2.css" />
+		<title>Test</title>
+	</head>
+	<body>
+		키 : <input type="text" id="key" /> 값 :<input
+			type="text"
+			id="data"
+		/><br />
+		<input type="button" value="데이터 저장" onclick="saveData()" />
+		<input type="button" value="데이터 읽기" onclick="loadData()" />
+		<input type="button" value="데이터 삭제" onclick="removedata()" />
+		<input type="button" value="데이터 전체삭제" onclick="removeall()" />
+		<div id="result"></div>
+		<script>
+			let key = document.getElementById('key');
+			let data = document.getElementById('data');
 
-       <div class="main">
-              <h1>스틱코드로 만든 투두리스트</h1>
-              <form class = "" action="home2.html" method="post">
-                     <input type="text" placeholder="새로운 할 일" name="todo" required>
-                     <button type="submit"><b>추가</b></button>
-              </form>
+			function saveData() {
+				sessionStorage.setItem(key.value, data.value);
+				document.getElementById('result').innerHTML = '데이터 저장 완료';
+			}
 
-              <div class="todolist">
-                     <ul>
+			function loadData() {
+				for (var i = 0; i < sessionStorage.length; i++) {
+					let myKey = sessionStorage.key(i);
+					document.getElementById('result').innerHTML +=
+						myKey + ' : ' + localStorage.getItem(myKey) + '<br>';
+				}
+			}
 
-                     </ul>
-                     <a id="clear">모두 삭제</a>
-              </div>
+			function removedata() {
+				document.getElementById('result').innerHTML = key.value + '데이터 삭제';
+				sessionStorage.removeItem(key.value);
+			}
 
-
-       </div>
-
-       <script type="text/JavaScript" src="home2.js"></script>
-       
-</body>
+			function removeall() {
+				sessionStorage.clear();
+			}
+		</script>
+	</body>
 </html>

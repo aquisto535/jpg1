@@ -79,6 +79,7 @@ function handleSaveClick(){
     link.href = image
     link.download = "PaintJS[🎨]";
     link.click();
+    
 }
 
 

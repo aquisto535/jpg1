@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>워커 적용</title>
+	</head>
+	<body>
+		<button onclick="applyWorker()">워커 적용 수행</button>
+		<button onclick="awake()">깨어날 시간</button>
+		<div id="result"></div>
+		<script>
+			function applyWorker() {
+				if (window.Worker) {
+					worker = new Worker('worker.js');
+					worker.postMessage('워커가 동작합니다.');
+					worker.onMessage = function (event) {
+						document.getElementById('result').innerHTML = event.data;
+					};
+			worker.onerror() = function(error){
+			document.getElementById('result').innerHTML = error.message + "<br>"
+			document.getElementById('result').innerHTML += error.filename + "<br>"
+			document.getElementById('result').innerHTML += error.lineno + "<br>"
+			}
+				} else {
+					document.getElementById('result').innerHTML =
+						'현재 브라우저는 웹워커를 지원하지 않습니다.';
+				}
+			}
+
+			function awake() {
+				alert('친구야 일어나자');
+			}
+		</script>
+	</body>
+</html>
