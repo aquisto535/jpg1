@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<title>Wrapper</title>
+	</head>
+	<body>
+		<ul>
+			<li>HTML</li>
+		</ul>
+		<ul class="obj">
+			<li>javascript</li>
+		</ul>
+		<script>
+			//선택자에 의한 대상 지정
+
+			//(function ($) {
+			//	$('ul.obj').click(function () {
+			//		$('li', this).css('background-color', 'yellow');
+			//	});
+			//    })(jQuery);
+			// 다른 라이브러리와의 충돌 방지 형식 사용
+
+			//엘리먼트에 의한 대상 지정
+			$(document.body).css('background-color', 'blue');
+		</script>
+	</body>
+</html>

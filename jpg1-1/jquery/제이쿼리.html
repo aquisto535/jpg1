@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Hello world</title>
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	</head>
+	<body>
+		This is Hello World by HTML
+		<div id="msgid"></div>
+		<script>
+			//$(제어대상) = 주어 , $ = 제이쿼리
+			//.method1().method2) = 서술어
+			//$(레퍼) = 엘리먼트 오브젝트 또는 css 스타일 선택자 둘 중 하나가 들어감.
+			$(document).ready(function () {
+				$('#msgid')
+					.html('this is hello world by Jquery')
+					.css('background-color', 'red');
+			});
+		</script>
+	</body>
+</html>
