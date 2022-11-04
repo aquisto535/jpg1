@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+		<title>Jquery 기반의 태그, 아이디, 클래스 선택자</title>
+	</head>
+	<body>
+		<div>별 하나의 사랑과 별 하나의 추억과</div>
+		<div>별 하나의 사랑과 별 하나의 추억과</div>
+		<div>별 하나의 사랑과 별 하나의 추억과</div>
+		<p id="myid">아이디</p>
+		<p class="myclass">클래스</p>
+		<p class="myclass">클래스</p>
+		<p class="myclass">클래스</p>
+
+		<script>
+			$('div').css('color', 'blue');
+			$('#myid').css('background-color', 'yellow');
+			$('.myclass').css('background-color', 'green').css('color', 'white');
+		</script>
+	</body>
+</html>

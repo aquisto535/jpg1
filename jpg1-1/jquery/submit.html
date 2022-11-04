@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<title>Submit</title>
+		<style>
+			p {
+				margin: 0;
+				color: blue;
+			}
+
+			div {
+				margin-left: 10px;
+			}
+
+			span {
+				display: block;
+				color: goldenrod;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- focus, blur, change, select -->
+		<p>Type 'correct' to validate.</p>
+
+		<form action="">
+			<div>
+				<input type="text" />
+				<input type="submit" value="질의 보내기" />
+			</div>
+		</form>
+		<span></span>
+		<script>
+			$('form').submit(function () {
+				if ($('input:first').val() == 'correct') {
+					$('span').text('validated...').show().fadeIn(3000);
+					return true;
+				}
+				$('span').text('not valid...').show().fadeOut(2000);
+				return false;
+			});
+		</script>
+	</body>
+</html>

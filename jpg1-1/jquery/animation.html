@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<title>Animation</title>
+		<style>
+			div {
+				margin: 3px;
+				width: 80px;
+				height: 80px;
+				background-color: darkmagenta;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" id="fadeout" value="fadeout" />
+		<input type="button" id="fadein" value="fadein" />
+		<input type="button" id="hide" value="hide" />
+		<input type="button" id="show" value="show" />
+		<input type="button" id="slidedown" value="slidedown" />
+		<input type="button" id="slideup" value="slideup" />
+		<input type="button" id="mix" value="mix" />
+
+		<div id="target">target</div>
+		<script>
+			$('input[type="button"]').click(function (e) {
+				switch ($(e.target).attr('id')) {
+					case 'fadeout':
+						$('#target').fadeOut('slow');
+						break;
+					case 'fadein':
+						$('#target').fadeIn('slow');
+						break;
+					case 'hide':
+						$('#target').hide('slow');
+						break;
+					case 'show':
+						$('#target').show('slow');
+						break;
+					case 'slidedown':
+						$('#target').hide().slideDown('slow');
+						break;
+					case 'slideup':
+						$('#target').slideUp('slow');
+						break;
+					case 'mix':
+						$('#target')
+							.fadeOut(5000)
+							.fadeIn(3000)
+							.delay(1000)
+							.slideUp()
+							.slideDown('slow', function () {
+								alert('End');
+							});
+						break;
+				}
+			});
+		</script>
+	</body>
+</html>

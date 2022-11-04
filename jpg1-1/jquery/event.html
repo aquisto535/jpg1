@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<title>Event</title>
+	</head>
+	<body>
+		<button id="click_self" value="click self">Click me</button>
+		<button id="remove_event" value="unbind">Unbind</button>
+		<button id="trigger_event" value="trigger">Trigger</button>
+		<!-- -->
+
+		<script>
+			function clickHandler() {
+				alert('Thank You!');
+			}
+
+			$(document).bind('ready', function () {
+				$('#click_self').bind('click', clickHandler);
+				$('#remove_event').bind('click', function (e) {
+					$('#click_self').unbind('click', clickHandler);
+				});
+				$('#trigger_event').bind('click', function (e) {
+					$('#click_self').trigger('click');
+				});
+			});
+		</script>
+	</body>
+</html>

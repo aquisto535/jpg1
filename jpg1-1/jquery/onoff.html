@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<title>ONOFF</title>
+	</head>
+	<body>
+		<button id="click_self" value="click self">Click me</button>
+		<button id="remove_event" value="unbind">Unbind</button>
+		<button id="trigger_event" value="trigger">Trigger</button>
+		<!-- -->
+
+		<script>
+			function clickHandler() {
+				alert('Thank You!');
+			}
+
+			$('body').on('click', '#click_self', clickHandler);
+			$('body').on('click', '#remove_event', function (e) {
+				$('body').off('click', '#click_self', clickHandler);
+			});
+
+			$('body').on('click', '#trigger_event', function (e) {
+				$('#click_self').trigger('click');
+			});
+		</script>
+	</body>
+</html>
